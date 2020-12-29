@@ -1,9 +1,14 @@
 <template>
-    <div class="todo-item" v-bind:class="{'is-complete':todo.completed}">
-        <p>
-            <input type="checkbox" v-on:change="markComplete">
-            {{ todo.title }}
-        </p>
+    <div class="todo-item" >
+            <div class="nameChecked">
+                <input type="checkbox" v-on:change="changeComplete">
+                {{ todo.title }}
+                <span class="done-pin" v-bind:class="{'is-complete':todo.completed}">
+                DONE
+                </span>
+            </div>
+            
+            <button @click="$emit('del-todo', todo.id)" class="del">x</button>
     </div>
 </template>
 
@@ -12,9 +17,8 @@ export default {
     name: "TodoItem",
     props: ["todo"],
     methods: {
-        markComplete() {
-            this.todo.completed = !this.todo.completed;
-            this.$emit('isCompletedChanged', this.todo.completed);
+        changeComplete() {
+            this.$emit('completeToggle', this.todo.id);
         }
     }
 }
@@ -22,20 +26,53 @@ export default {
 
 <style scope>
     .todo-item {
-    background: #f4f4f4;
+    background: #dadada;
     padding: 10px;
-    border-bottom: 1px #ccc dotted;
+    height: -webkit-fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 12px;
+    font-weight: 400;
   }
   .is-complete {
-    text-decoration: line-through;
+    visibility: visible !important;
   }
   .del {
-    background: #ff0000;
+    background: #D30000;
     color: #fff;
     border: none;
-    padding: 5px 9px;
     border-radius: 50%;
     cursor: pointer;
     float: right;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    font-size: 1rem;
+    justify-self: flex-end;
   }
+
+  .nameChecked {
+      flex: 1;
+  }
+  input[type="checkbox"] {
+      margin: 6px;
+  }
+
+  .done-pin {
+      height: 8px;
+      width: 15px;
+      background: #00e600;
+      font-size: 0.76rem;
+      padding: 2px 8px;
+      margin-left: 4px;
+      border-radius: 6px;
+      visibility: hidden;
+  }
+
+  
+
 </style>

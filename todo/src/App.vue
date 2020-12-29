@@ -1,50 +1,20 @@
 <template>
-  <div id="app">
-    <Todos v-bind:todos="todos" />
-  </div>
+  <router-view />
 </template>
 
 <script>
-import Todos from './components/Todos';
-
 export default {
-  name: 'App',
+  name: 'app',
   components: {
-    Todos
-  },
-  data() {
-    return {
-      todos: [
-        {
-            id: 1,
-            title: "Todo one",
-            completed: false,
-        },
-        {
-            id: 2,
-            title: "Todo two",
-            completed: true,
-        },
-        {
-            id: 3,
-            title: "Todo three",
-            completed: false,
-        }
-      ]
-    }
   }
 }
 </script>
 
 <style>
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
 
-body {
-  font-family: Arial, Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-}
 </style>

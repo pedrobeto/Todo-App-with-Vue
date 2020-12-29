@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-bind:key="todo.id" v-for="todo in todos">
-            <TodoItem v-bind:todo="todo" @isCompletedChanged="todo.completed = $isCompletedChanged" />
+            <TodoItem v-bind:todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" @completeToggle="$emit('completeToggle', todo.id)"/>
         </div>
     </div>
 </template>
@@ -16,13 +16,12 @@ export default {
     },
     props: ["todos"],
     methods: {
-        isCompletedChanged() {
-            this.todo.completed = !this.todo.completed;
-        }
+        
     }
 }
 </script>
 
 <style scoped>
+
 
 </style>
