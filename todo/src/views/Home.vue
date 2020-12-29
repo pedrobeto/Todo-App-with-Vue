@@ -75,7 +75,7 @@ body {
 }
 
 #app {
-    background-color: #C0C0C0;
+    background-color: #41B883;
     height: 100vh;
     width: 100vw;
     display: flex;

@@ -1,7 +1,11 @@
 <template>
     <div class="wrap-container">
         <form @submit="addTodo" class="add-form">
-            <input type="text" v-model="title" name="title" placeholder="Add todo here...">
+            <input
+                type="text"
+                v-model="title"
+                name="title"
+                placeholder="Add todo here...">
             <input type="submit" value="Submit" class="btn">
         </form>
     </div>
@@ -57,7 +61,7 @@ export default {
         border: none;
         border-radius: 10px;
         cursor: pointer;
-        background: #55bed7;
+        background: #41B883;
         text-transform: uppercase;
         font-weight: 600;
         color: #fafafa;

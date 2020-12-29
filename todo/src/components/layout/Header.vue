@@ -1,6 +1,9 @@
 <template>
     <header class="header">
-        <h1>Todo List</h1>
+        <div id="title">
+            <h1>Todo List with  </h1>
+            <span><img id="logoImg" src="../../../public/icon-logo.svg" alt=""></span>
+        </div>
         <div id="nav">
             <router-link to="/">Home</router-link> |
             <router-link to="/">About</router-link>
@@ -32,5 +35,15 @@ export default {
         color: #fafafa;
         padding-right: 5px;
         text-decoration: none;
+    }
+    #title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+    }
+    #logoImg {
+        width: 32px;
+        height: 32px;
     }
 </style>
